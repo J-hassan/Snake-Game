@@ -3,7 +3,7 @@ const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
 const popup = document.querySelector("#pop");
-
+const speed = prompt("Enter the speed in miliseconds :");
 
 let gameOver = false;
 let foodX, foodY;
@@ -99,7 +99,7 @@ const initGame = () => {
 }
 
 updateFoodPosition();
-setIntervalId = setInterval(initGame, 100);
+setIntervalId = setInterval(initGame, speed);
 document.addEventListener("keyup", changeDirection);
 
 // code is completed now let's play and check
