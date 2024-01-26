@@ -3,8 +3,11 @@ const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");
 const controls = document.querySelectorAll(".controls i");
 const popup = document.querySelector("#pop");
-const speed = prompt("Enter the speed in miliseconds :");
+const speedInput = document.querySelector("#speed");
+const changeBtn = document.querySelector("#changebtn");
 
+
+let speed = 100;
 let gameOver = false;
 let foodX, foodY;
 let snakeX = 5, snakeY = 5;
@@ -96,7 +99,34 @@ const initGame = () => {
         }
     }
     playBoard.innerHTML = html;
+};
+
+
+changeBtn.addEventListener("click", () => {
+    // Change the speed and restart the game when the "Change" button is clicked
+    speed = parseInt(speedInput.value);
+    restartGame();
+});
+
+function restartGame() {
+    // Clear the current game and start a new one with the updated speed
+    clearInterval(setIntervalId);
+    snakeBody = [];
+    score = 0;
+    gameOver = false;
+    speedInput.value = speed; // Update the input field with the new speed
+
+    // Resetting the HTML content of the play board
+    playBoard.innerHTML = "";
+
+    // Reinitialize the game
+    updateFoodPosition();
+    setIntervalId = setInterval(initGame, speed);
+    speedInput.value = "";
 }
+
+// ... (rest of the code)
+
 
 updateFoodPosition();
 setIntervalId = setInterval(initGame, speed);

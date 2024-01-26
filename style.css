@@ -60,6 +60,7 @@ body {
   width: calc(100% / 4);
   cursor: pointer;
   border-right: 1px solid #171B26;
+  border-bottom: 1px solid #171B26;
 }
 
 .popup{
@@ -123,4 +124,25 @@ body {
       padding: 15px 0;
       font-size: 1rem;
     }
+  }
+
+  /* new styling */
+
+  .speed-input{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .speed-input button , .speed-input input{
+    padding: 10px 10px;
+    outline: none;
+    background-color: #293447;
+    color: #B8C6DC;
+    border: 1px solid #171B26;
+    flex: 1;
+  }
+
+  .speed-input button:active{
+     background-color: #212837;
   }
